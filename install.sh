@@ -46,7 +46,8 @@ read -p "➜ " EXTRA_MSG
 echo ""
 echo -e "${YELLOW}[*] Installing Required Packages...${RESET}"
 pkg update -y
-pkg install figlet toilet lolcat git -y
+pkg install figlet toilet ruby -y
+gem install lolcat
 
 # Generate .bashrc
 echo -e "${YELLOW}[*] Generating Custom Banner for $USER_NAME...${RESET}"
@@ -66,11 +67,7 @@ WHITE='\033[1;37m'
 RESET='\033[0m'
 
 echo -e "${RED}"
-echo "  ██▓     ███████  ██████  ███████ ███    ██ ██████  "
-echo "  ▓██▒    ██      ▒██    ▒ ██      ████   █ ██   ▒██ "
-echo "  ▒██░    █████   ░ ▓██▄   █████   ██ ██  █ ██████░  "
-echo "  ▒██░    ██        ▒   ██ ██      ██  ██ █ ██   ▒██ "
-echo "  ░██████ ███████ ██████  ███████ ██   ███ ██████░   "
+figlet -f big "USER_NAME_PLACEHOLDER" | lolcat
 echo -e "${RESET}"
 
 echo -e "${GREEN}"
