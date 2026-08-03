@@ -23,7 +23,7 @@ echo -e "${CYAN}     Custom Termux Banner Installer${RESET}"
 echo -e "${GREEN}════════════════════════════════════════════${RESET}"
 echo ""
 
-# 🔥 User Input Lein
+# 🔥 User Input
 echo -e "${YELLOW}[?] Apna Naam Likhein:${RESET}"
 read -p "➜ " USER_NAME
 
@@ -36,30 +36,19 @@ read -p "➜ " GITHUB_USER
 echo -e "${YELLOW}[?] Koi Extra Message? (Jaise 'Hacking Is Life')${RESET}"
 read -p "➜ " EXTRA_MSG
 
-# Agar koi field empty ho toh default set karein
-if [ -z "$USER_NAME" ]; then
-    USER_NAME="Hacker"
-fi
+# Default values
+[ -z "$USER_NAME" ] && USER_NAME="Hacker"
+[ -z "$CHANNEL_NAME" ] && CHANNEL_NAME="YouTube"
+[ -z "$GITHUB_USER" ] && GITHUB_USER="GitHub"
+[ -z "$EXTRA_MSG" ] && EXTRA_MSG="Stay Anonymous"
 
-if [ -z "$CHANNEL_NAME" ]; then
-    CHANNEL_NAME="YouTube"
-fi
-
-if [ -z "$GITHUB_USER" ]; then
-    GITHUB_USER="GitHub"
-fi
-
-if [ -z "$EXTRA_MSG" ]; then
-    EXTRA_MSG="Stay Anonymous"
-fi
-
-# Packages Install
+# Install packages
 echo ""
 echo -e "${YELLOW}[*] Installing Required Packages...${RESET}"
 pkg update -y
 pkg install figlet toilet lolcat git -y
 
-# 🔥 Custom Bashrc Generate Karein (User Ke Naam Se)
+# Generate .bashrc
 echo -e "${YELLOW}[*] Generating Custom Banner for $USER_NAME...${RESET}"
 
 cat > ~/.bashrc << 'EOF'
@@ -67,7 +56,6 @@ cat > ~/.bashrc << 'EOF'
 
 clear
 
-# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -106,17 +94,16 @@ echo "  [●] Welcome USER_NAME_PLACEHOLDER!"
 echo "  [●] Type 'help' for commands"
 echo -e "${RESET}"
 
-# Custom Prompt
 PS1='\[\e[0;32m\]┌──(\[\e[0;31m\]USER_NAME_PLACEHOLDER\[\e[0;32m\])-[\[\e[0;34m\]\W\[\e[0;32m\]]\n\[\e[0;32m\]└─#\[\e[0m\] '
 EOF
 
-# 🔥 Placeholders Ko User Ke Input Se Replace Karein
+# Replace placeholders
 sed -i "s/USER_NAME_PLACEHOLDER/$USER_NAME/g" ~/.bashrc
 sed -i "s/CHANNEL_NAME_PLACEHOLDER/$CHANNEL_NAME/g" ~/.bashrc
 sed -i "s/GITHUB_USER_PLACEHOLDER/$GITHUB_USER/g" ~/.bashrc
 sed -i "s/EXTRA_MSG_PLACEHOLDER/$EXTRA_MSG/g" ~/.bashrc
 
-# Extra Tools
+# Extra tools
 echo -e "${YELLOW}[*] Installing Extra Tools...${RESET}"
 pkg install cmatrix neofetch -y
 
