@@ -1,69 +1,46 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/bin/bash
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+RESET='\033[0m'
 
 clear
 
-pkg update -y >/dev/null 2>&1
-pkg install toilet figlet nano -y >/dev/null 2>&1
+echo -e "${RED}"
+echo "  ██▓     ███████  ██████  ███████ ███    ██ ██████  "
+echo "  ▓██▒    ██      ▒██    ▒ ██      ████   █ ██   ▒██ "
+echo "  ▒██░    █████   ░ ▓██▄   █████   ██ ██  █ ██████░  "
+echo "  ▒██░    ██        ▒   ██ ██      ██  ██ █ ██   ▒██ "
+echo "  ░██████ ███████ ██████  ███████ ██   ███ ██████░   "
+echo -e "${RESET}"
 
-clear
-echo -e "\e[1;32m"
+echo -e "${GREEN}════════════════════════════════════════${RESET}"
+echo -e "${CYAN}   Legend Hassan Custom Tool Installer${RESET}"
+echo -e "${GREEN}════════════════════════════════════════${RESET}"
+echo ""
 
-toilet -f future "LEGEND"
-toilet -f future "HASSAN"
+# Install packages
+echo -e "${YELLOW}[*] Installing required packages...${RESET}"
+pkg update -y
+pkg install figlet toilet lolcat git -y
 
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "        LEGEND TERMUX INSTALLER"
-echo "          Created By: LEGEND HASSAN"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo
+# Copy custom bashrc
+echo -e "${YELLOW}[*] Setting up custom banner...${RESET}"
+cp .bashrc_custom ~/.bashrc
 
-read -p "👤 Enter First Name : " FIRST
-read -p "👤 Enter Last Name  : " LAST
-read -p "📺 YouTube Username : " YOUTUBE
-read -p "📢 Telegram Username: " TELEGRAM
-read -p "💬 WhatsApp Channel : " WHATSAPP
+# Add extra tools
+echo -e "${YELLOW}[*] Installing extra tools...${RESET}"
+pkg install cmatrix neofetch -y
 
-echo
-echo "[✓] Installing..."
-sleep 1
-echo "[✓] Creating Banner..."
-sleep 1
-echo "[✓] Saving Configuration..."
-sleep 1
-
-cat > ~/.bashrc << EOF
-clear
-
-echo -e "\e[1;32m"
-toilet -f future "$FIRST"
-toilet -f future "$LAST"
-
-echo
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-echo "👑 OWNER    : $FIRST $LAST"
-echo "💀 ACCESS   : USER"
-echo "🟢 STATUS   : ONLINE"
-
-if [ ! -z "$YOUTUBE" ]; then
-    echo "📺 YOUTUBE  : $YOUTUBE"
-fi
-
-if [ ! -z "$TELEGRAM" ]; then
-    echo "📢 TELEGRAM : $TELEGRAM"
-fi
-
-if [ ! -z "$WHATSAPP" ]; then
-    echo "💬 WHATSAPP : $WHATSAPP"
-fi
-
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-PS1='\[\e[1;32m\]┌──('"$FIRST"'㉿TERMUX)-[\w]\n└─\$ \[\e[0m\]'
-EOF
-
-echo
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "✅ INSTALLATION COMPLETED"
-echo "🔄 Restart Termux"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo -e "${GREEN}[✓] Installation Complete!${RESET}"
+echo -e "${CYAN}[!] Restart Termux to see changes${RESET}"
+echo -e "${CYAN}[!] Type 'neofetch' for system info${RESET}"
+echo -e "${CYAN}[!] Type 'cmatrix' for matrix effect${RESET}"
+echo ""
+echo -e "${GREEN}════════════════════════════════════════${RESET}"
+echo -e "${RED}   Made with ❤️ by Legend Hassan${RESET}"
+echo -e "${GREEN}════════════════════════════════════════${RESET}"
