@@ -30,6 +30,9 @@ read -p "➜ " USER_NAME
 echo -e "${YELLOW}[?] Apna YouTube Channel Name Likhein:${RESET}"
 read -p "➜ " CHANNEL_NAME
 
+echo -e "${YELLOW}[?] Apna YouTube Channel Link Likhein:${RESET}"
+read -p "➜ " CHANNEL_LINK
+
 echo -e "${YELLOW}[?] Apna GitHub Username Likhein:${RESET}"
 read -p "➜ " GITHUB_USER
 
@@ -39,6 +42,7 @@ read -p "➜ " EXTRA_MSG
 # Default values
 [ -z "$USER_NAME" ] && USER_NAME="Hacker"
 [ -z "$CHANNEL_NAME" ] && CHANNEL_NAME="YouTube"
+[ -z "$CHANNEL_LINK" ] && CHANNEL_LINK="https://youtube.com"
 [ -z "$GITHUB_USER" ] && GITHUB_USER="GitHub"
 [ -z "$EXTRA_MSG" ] && EXTRA_MSG="Stay Anonymous"
 
@@ -70,13 +74,10 @@ echo -e "${RED}"
 figlet -f big "USER_NAME_PLACEHOLDER" | lolcat
 echo -e "${RESET}"
 
-echo -e "${GREEN}"
-figlet -f slant "USER_NAME_PLACEHOLDER" | lolcat
-echo -e "${RESET}"
-
 echo -e "${YELLOW}════════════════════════════════════════════${RESET}"
 echo -e "${CYAN}   👤 User        : USER_NAME_PLACEHOLDER${RESET}"
 echo -e "${CYAN}   📺 YouTube     : CHANNEL_NAME_PLACEHOLDER${RESET}"
+echo -e "${CYAN}   🔗 Link        : CHANNEL_LINK_PLACEHOLDER${RESET}"
 echo -e "${CYAN}   🐙 GitHub      : GITHUB_USER_PLACEHOLDER${RESET}"
 echo -e "${CYAN}   💬 Message     : EXTRA_MSG_PLACEHOLDER${RESET}"
 echo -e "${CYAN}   📱 Device      : $(getprop ro.product.model 2>/dev/null || echo 'Termux')${RESET}"
@@ -90,6 +91,11 @@ echo "  [●] System Ready..."
 echo "  [●] Welcome USER_NAME_PLACEHOLDER!"
 echo "  [●] Type 'help' for commands"
 echo -e "${RESET}"
+echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
+echo -e "${PURPLE}   Created with ❤️ by Legend Hassan${RESET}"
+echo -e "${PURPLE}   YouTube: https://youtube.com/@legendhassan-official${RESET}"
+echo -e "${PURPLE}   GitHub: https://github.com/Ranabrand36${RESET}"
+echo -e "${PURPLE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 
 PS1='\[\e[0;32m\]┌──(\[\e[0;31m\]USER_NAME_PLACEHOLDER\[\e[0;32m\])-[\[\e[0;34m\]\W\[\e[0;32m\]]\n\[\e[0;32m\]└─#\[\e[0m\] '
 EOF
@@ -97,6 +103,7 @@ EOF
 # Replace placeholders
 sed -i "s/USER_NAME_PLACEHOLDER/$USER_NAME/g" ~/.bashrc
 sed -i "s/CHANNEL_NAME_PLACEHOLDER/$CHANNEL_NAME/g" ~/.bashrc
+sed -i "s/CHANNEL_LINK_PLACEHOLDER/$CHANNEL_LINK/g" ~/.bashrc
 sed -i "s/GITHUB_USER_PLACEHOLDER/$GITHUB_USER/g" ~/.bashrc
 sed -i "s/EXTRA_MSG_PLACEHOLDER/$EXTRA_MSG/g" ~/.bashrc
 
@@ -108,9 +115,9 @@ echo ""
 echo -e "${GREEN}════════════════════════════════════════════${RESET}"
 echo -e "${GREEN}[✓] Installation Complete!${RESET}"
 echo -e "${CYAN}[!] Restart Termux to see changes${RESET}"
-echo -e "${CYAN}[!] Type 'neofetch' for system info${RESET}"
-echo -e "${CYAN}[!] Type 'cmatrix' for matrix effect${RESET}"
 echo ""
 echo -e "${GREEN}════════════════════════════════════════════${RESET}"
-echo -e "${PURPLE}   Made with ❤️ by Legend Hassan${RESET}"
+echo -e "${PURPLE}   Created with ❤️ by Legend Hassan${RESET}"
+echo -e "${PURPLE}   YouTube: https://youtube.com/@legendhassan-official?si=h1BINqsNHPySY6gr${RESET}"
+echo -e "${PURPLE}   Whatsapp Channel: https://whatsapp.com/channel/0029Vb7VcqlBlHpdhAL7f80S${RESET}"
 echo -e "${GREEN}════════════════════════════════════════════${RESET}"
